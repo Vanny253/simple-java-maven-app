@@ -10,7 +10,7 @@ public class App {
     public App() {}
 
     public static void main(String[] args) {
-        port(8081);  // Ensures the app is listening on port 8081
+        port(8082);  // Ensures the app is listening on port 8082
         get("/", (req, res) -> MESSAGE);
     }
 
