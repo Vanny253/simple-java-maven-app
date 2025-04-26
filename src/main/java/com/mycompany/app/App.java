@@ -5,7 +5,7 @@ import static spark.Spark.port;
 
 public class App {
 
-    private static final String MESSAGE = "Hello from Spark Web Server! Welcome to the world of Java!";
+    private static final String MESSAGE = "Hello from Spark Web Server! Welcome Java Webpage!";
 
     public App() {}
 
