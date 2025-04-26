@@ -6,7 +6,7 @@ import static spark.Spark.post;
 
 public class App {
 
-    private static final String MESSAGE = "Hello from Spark Web Server! Welcome!";
+    private static final String MESSAGE = "Hello from Spark Web Server! Welcome to the world of Java!";
 
     public App() {}
 
