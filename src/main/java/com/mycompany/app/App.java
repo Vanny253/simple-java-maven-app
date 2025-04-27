@@ -16,4 +16,8 @@ public class App {
     public String getMessage() {
         return MESSAGE;
     }
+
+    public int doubleNumber(int num) {
+        return num * 2;
+    }
 }
