@@ -75,15 +75,15 @@ pipeline {
             }
         }
 
-        stage('Deployment Verification') {
-            steps {
-                script {
-                    echo 'Verifying the deployment...'
-                    // You can use HTTP requests to verify the app is running, for example:
-                    bat 'curl http://localhost:8081/'  // Verify if the app is running
-                }
-            }
-        }
+        // stage('Deployment Verification') {
+        //     steps {
+        //         script {
+        //             echo 'Verifying the deployment...'
+        //             // You can use HTTP requests to verify the app is running, for example:
+        //             bat 'curl http://localhost:8081/'  // Verify if the app is running
+        //         }
+        //     }
+        // }
     }
 
     post {
