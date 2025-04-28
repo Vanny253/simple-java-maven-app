@@ -31,6 +31,11 @@ pipeline {
                     bat 'mvn test'  // Run tests
                 }
             }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'  // This will show test results in Jenkins
+                }
+            }
         }
 
         stage('Generate Code Coverage') {
