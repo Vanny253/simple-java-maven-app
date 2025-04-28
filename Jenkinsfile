@@ -77,14 +77,34 @@ pipeline {
         }
 
         stage('Deployment Verification') {
-            steps {
-                script {
-                    echo 'Verifying the deployment...'
-                    // You can use HTTP requests to verify the app is running, for example:
-                    bat 'curl http://localhost:8081/'  // Verify if the app is running
+    steps {
+        script {
+            echo 'Waiting for the application to start...'
+
+            // Wait up to 30 seconds for the service to respond
+            def timeout = 30
+            def elapsed = 0
+            def success = false
+
+            while (elapsed < timeout) {
+                def result = bat(script: 'curl --silent --fail http://localhost:8081/', returnStatus: true)
+                if (result == 0) {
+                    success = true
+                    break
                 }
+                sleep(time: 2, unit: 'SECONDS')
+                elapsed += 2
             }
+
+            if (!success) {
+                error("Application did not start within ${timeout} seconds")
+            }
+
+            echo '✅ Application is running successfully!'
         }
+    }
+}
+
     }
 
     post {
