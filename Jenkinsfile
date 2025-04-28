@@ -70,6 +70,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running the Docker container...'
+                    bat 'docker rm -f java-staging'
                     bat 'docker run -d --name java-staging -p 8081:8081 my-java-app'  // Start the Docker container
                 }
             }
