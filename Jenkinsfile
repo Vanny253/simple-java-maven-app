@@ -56,10 +56,10 @@ pipeline {
                 script {
                     echo 'Building Docker image...'
                     writeFile file: 'Dockerfile', text: '''
-                        FROM openjdk:11-jdk
+                        FROM openjdk:17-jdk
                         COPY target/my-app-1.0-SNAPSHOT.jar /usr/app/
                         WORKDIR /usr/app
-                        CMD ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
+                        CMD ["java", "-jar", "app.jar"]
                     '''
                     bat 'docker build -t my-java-app .'  // Build Docker image
                 }
