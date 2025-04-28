@@ -59,7 +59,7 @@ pipeline {
                         FROM openjdk:17-jdk
                         COPY target/my-app-1.0-SNAPSHOT.jar /usr/app/
                         WORKDIR /usr/app
-                        CMD ["java", "-jar", "app.jar"]
+                        CMD ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
                     '''
                     bat 'docker build -t my-java-app .'  // Build Docker image
                 }
@@ -75,15 +75,15 @@ pipeline {
             }
         }
 
-        // stage('Deployment Verification') {
-        //     steps {
-        //         script {
-        //             echo 'Verifying the deployment...'
-        //             // You can use HTTP requests to verify the app is running, for example:
-        //             bat 'curl http://localhost:8081/'  // Verify if the app is running
-        //         }
-        //     }
-        // }
+        stage('Deployment Verification') {
+            steps {
+                script {
+                    echo 'Verifying the deployment...'
+                    // You can use HTTP requests to verify the app is running, for example:
+                    bat 'curl http://localhost:8081/'  // Verify if the app is running
+                }
+            }
+        }
     }
 
     post {
