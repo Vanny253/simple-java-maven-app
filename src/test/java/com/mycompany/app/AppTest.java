@@ -19,7 +19,7 @@ public class AppTest
     public void testAppMessage()
     {
         App app = new App();
-        assertEquals("Hello from Spark Web Server!!!xxx", app.getMessage());
+        assertEquals("Hello from Spark Web Server!!!", app.getMessage());
     }
 
     @Test
